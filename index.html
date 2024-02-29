@@ -29,6 +29,7 @@
            }
 
            // Send payload.nonce to your server
+           window.ReactNativeWebView.postMessage(payload.nonce);
          });
        });
      });
