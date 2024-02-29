@@ -1,38 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
- <head>
-   <meta charset="utf-8">
-   <title>Checkout</title>
- </head>
- <body>
-   <div id="dropin-container"></div>
-   <button id="submit-button">Purchase</button>
+<html>
+<head>
+<title>Custom Google Pay Button</title>
+<style>
+ #google-pay-button {
+  background-color: #4285f4; /* Google Pay blue */
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-   <script src="https://js.braintreegateway.com/web/dropin/1.42.0/js/dropin.min.js"></script>
+#google-pay-button:hover {
+  background-color: #357ae8; /* Darker blue on hover */
+}
 
-   <script>
-     var submitButton = document.querySelector('#submit-button');
+</style>
+</head>
+<body>
+  <button id="google-pay-button">Buy with Google Pay</button>
+  <script>
+   const googlePayButton = document.getElementById('google-pay-button');
 
-     braintree.dropin.create({
-       authorization: 'sandbox_4xqm4nmz_9kzq8v2yssgmtbxm',
-       selector: '#dropin-container'
-     }, function (err, dropinInstance) {
-       if (err) {
-         // Handle any errors that might've occurred when creating Drop-in
-         console.error(err);
-         return;
-       }
-       submitButton.addEventListener('click', function () {
-         dropinInstance.requestPaymentMethod(function (err, payload) {
-           if (err) {
-             // Handle errors in requesting payment method
-           }
-
-           // Send payload.nonce to your server
-           window.ReactNativeWebView.postMessage(payload.nonce);
-         });
-       });
-     });
-   </script>
- </body>
+googlePayButton.addEventListener('click', () => {
+  // Simulate payment processing with a placeholder message
+  alert('Processing payment with Google Pay...');
+});
+  </script>
+</body>
 </html>
