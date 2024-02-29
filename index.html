@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Custom Google Pay Button</title>
-<style>
+ <title>Custom Google Pay Button</title>
+ <style>
  #google-pay-button {
   background-color: #4285f4; /* Google Pay blue */
   color: white;
@@ -11,23 +11,41 @@
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+#google-pay-button img {
+  margin-right: 10px;
 }
 
 #google-pay-button:hover {
   background-color: #357ae8; /* Darker blue on hover */
 }
 
-</style>
+ </style>
 </head>
 <body>
-  <button id="google-pay-button">Buy with Google Pay</button>
+  <div id="button-container">
+    <button id="google-pay-button">
+      <img src="gpay-icon.png" alt="Google Pay">
+      Buy with Google Pay
+    </button>
+  </div>
   <script>
-   const googlePayButton = document.getElementById('google-pay-button');
+   const buttonContainer = document.getElementById('button-container');
+   buttonContainer.style.display = 'flex';
+   buttonContainer.style.justifyContent = 'center';
+   buttonContainer.style.alignItems = 'center';
+
+  const googlePayButton = document.getElementById('google-pay-button');
 
 googlePayButton.addEventListener('click', () => {
-  // Simulate payment processing with a placeholder message
-  alert('Processing payment with Google Pay...');
+   window.ReactNativeWebView.postMessage(
+      JSON.stringify({ action: 'applePay', data: {} }),
+   )
 });
+
   </script>
 </body>
 </html>
