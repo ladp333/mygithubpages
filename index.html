@@ -41,9 +41,8 @@
   const googlePayButton = document.getElementById('google-pay-button');
 
 googlePayButton.addEventListener('click', () => {
-   window.ReactNativeWebView.postMessage(
-      JSON.stringify({ action: 'applePay', data: {} }),
-   )
+ window.ReactNativeWebView.postMessage("GPay")
+   
 });
 
   </script>
