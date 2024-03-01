@@ -48,6 +48,15 @@
         vertical-align: middle;
       }
     </style>
+    <script>
+      function isIOSWebView() {
+       return /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent);
+      }
+
+      function isAndroidWebView() {
+        return /Android.*(?:Version\/(\d+)\.\d+)?\s+Chrome\/[.0-9]*\s+Mobile/i.test(navigator.userAgent);
+      }
+    </script>
   </head>
   <body>
     <div id="gpay-button">
