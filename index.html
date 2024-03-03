@@ -36,9 +36,16 @@
         cursor: pointer;
         margin-bottom: 10px;
       }
-      #applepay-button {
+      .apple-pay-button {
+          display: inline-block;
+          -webkit-appearance: -apple-pay-button;
+          -apple-pay-button-type: pay; /* Use any supported button type. */
           cursor: pointer;
       }
+      .apple-pay-button-black {
+          -apple-pay-button-style: black;
+      }
+
 
       #gpay-button:hover {
         background-color: #f0f0f0;
