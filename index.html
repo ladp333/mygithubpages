@@ -39,19 +39,11 @@
       .apple-pay-button {
         display: inline-block;
         -webkit-appearance: -apple-pay-button;
-        -apple-pay-button-type: plain;
+        -apple-pay-button-type: pay;
         -apple-pay-button-style: black;
         border-radius: 950px;
-        width: 140px;
-        height: 30px;
-      }
-
-      apple-pay-button {
-        --apple-pay-button-width: 150px;
-        --apple-pay-button-height: 30px;
-        --apple-pay-button-border-radius: 3px;
-        --apple-pay-button-padding: 0px 0px;
-        --apple-pay-button-box-sizing: border-box;
+        width: 83px;
+        height: 40px;
       }
 
       #gpay-button:hover {
@@ -78,11 +70,6 @@
       </div>
 
       <div id="applepay-button" class="apple-pay-button"></div>
-      <apple-pay-button
-        buttonstyle="black"
-        type="pay"
-        locale="en-US"
-      ></apple-pay-button>
     </div>
 
     <script>
