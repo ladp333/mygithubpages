@@ -44,13 +44,7 @@
       .apple-pay-button-black {
           -apple-pay-button-style: black;
       }
-      .apple-pay-button-white {
-          -apple-pay-button-style: white;
-      }
-      .apple-pay-button-white-with-line {
-          -apple-pay-button-style: white-outline;
-      }
-
+      
 
       #gpay-button:hover {
         background-color: #f0f0f0;
@@ -75,7 +69,10 @@
         <img class="pay-icon" src="GPay.svg" alt="Gpay" />
       </div>
 
-        <div id = "applepay-button" class="apple-pay-button apple-pay-button-black"> </div>
+        <div id = "applepay-button" class="apple-pay-button apple-pay-button-black">
+            <span class="text">Pay with</span>
+            <span class="logo"></span>
+        </div>
     </div>
 
     <script>
