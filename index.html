@@ -37,8 +37,10 @@
         margin-bottom: 10px;
       }
       #applepay-button {
-        width: 83px;
-        height: 40px;
+        display: inline-block;
+        -webkit-appearance: -apple-pay-button;
+        -apple-pay-button-type: plain;
+        -apple-pay-button-style: black;
         cursor: pointer;
       }
 
@@ -57,11 +59,6 @@
         height: 40px;
         vertical-align: middle;
       }
-      .applepay-icon {
-        width: 83px;
-        height: 40px;
-        vertical-align: middle;
-      }
     </style>
   </head>
   <body>
@@ -70,19 +67,7 @@
         <img class="pay-icon" src="GPay.svg" alt="Gpay" />
       </div>
 
-      <div id="applepay-button">
-        <img class="applepay-icon" src="ApplePay.svg" alt="Apply Pay" />
-      </div>
-      <div
-        style="
-          display: inline-block;
-          border-radius: 0pt;
-          -webkit-appearance: -apple-pay-button;
-          -apple-pay-button-type: plain;
-          -apple-pay-button-style: white-outline;
-        "
-        lang="en"
-      ></div>
+      <div id="applepay-button" lang="en"></div>
     </div>
 
     <script>
