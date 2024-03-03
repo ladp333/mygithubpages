@@ -37,9 +37,13 @@
         margin-bottom: 10px;
       }
       .apple-pay-button {
-          display: inline-block;
-          -apple-pay-button-type: plain;
-          -apple-pay-button-style: black;
+        display: inline-block;
+        -webkit-appearance: -apple-pay-button;
+        -apple-pay-button-type: plain;
+        -apple-pay-button-style: black;
+        border-radius: 950px;
+        width: 140px;
+        height: 30px;
       }
 
       #gpay-button:hover {
@@ -65,7 +69,7 @@
         <img class="pay-icon" src="GPay.svg" alt="Gpay" />
       </div>
 
-        <div id = "applepay-button" class="apple-pay-button"></div>
+      <div id="applepay-button" class="apple-pay-button"></div>
     </div>
 
     <script>
