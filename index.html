@@ -7,6 +7,7 @@
     <style>
       body {
         display: flex;
+
         justify-content: center;
         align-items: center;
         height: 100vh;
@@ -15,6 +16,7 @@
 
       .button-container {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
       }
@@ -33,6 +35,7 @@
         color: #4285f4;
         line-height: 40px; /* Vertically center the text */
         cursor: pointer;
+          margin-bottom: 10px;
       }
 
       #gpay-button:hover {
@@ -54,13 +57,13 @@
   </head>
   <body>
     <div class="button-container">
-      <div id="gpay-button">
+      <button id="gpay-button">
         <img class="pay-icon" src="GPay.svg" alt="Gpay" />
-      </div>
+      </button>
 
-      <div id="applepay-button">
+      <button id="applepay-button">
         <img class="pay-icon" src="ApplePay.svg" alt="Apply Pay" />
-      </div>
+      </button>
     </div>
 
     <script>
