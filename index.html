@@ -63,6 +63,7 @@
         vertical-align: middle;
       }
     </style>
+
   </head>
   <body>
     <div class="button-container">
@@ -71,6 +72,8 @@
       </div>
 
       <div id="applepay-button" class="apple-pay-button"></div>
+
+
     </div>
 
     <script>
@@ -117,11 +120,6 @@
       window.onload = togglePayButtons;
     </script>
 
-    <script>
-      const gpayButton = document.getElementById("gpay-button");
-      gpayButton.addEventListener("click", () => {
-        window.ReactNativeWebView.postMessage("GPay");
-      });
-    </script>
+    
   </body>
 </html>
