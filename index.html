@@ -44,7 +44,7 @@
         border-radius: 950px;
         width: 140pt;
         height: 30pt;
-        margin: 4pt;
+        margin: 10px;
       }
 
       #gpay-button:hover {
@@ -62,8 +62,14 @@
         height: 40px;
         vertical-align: middle;
       }
-    </style>
 
+      #nonce {
+        display: flex;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+        font-size: 3px;
+      }
+    </style>
   </head>
   <body>
     <div class="button-container">
@@ -73,7 +79,7 @@
 
       <div id="applepay-button" class="apple-pay-button"></div>
 
-
+      <div id="nonce"></div>
     </div>
 
     <script>
@@ -119,7 +125,5 @@
       }
       window.onload = togglePayButtons;
     </script>
-
-    
   </body>
 </html>
