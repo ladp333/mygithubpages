@@ -103,11 +103,11 @@
         const applepayButton = document.getElementById("applepay-button");
 
         if (isIOSWebView()) {
-          gpayButton.style.display = "none";
-          applepayButton.style.display = "inline-block";
-          applepayButton.addEventListener("click", () => {
-            window.ReactNativeWebView.postMessage("ApplePay");
-          });
+          // gpayButton.style.display = "none";
+          // applepayButton.style.display = "inline-block";
+          // applepayButton.addEventListener("click", () => {
+          //   window.ReactNativeWebView.postMessage("ApplePay");
+          // });
         } else if (isIOSWebView()) {
           gpayButton.style.display = "inline-block";
           applepayButton.style.display = "none";
