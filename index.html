@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Google Pay Button</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <style>
       body {
         font-family: gordita, Arial, sans-serif;
@@ -36,6 +40,7 @@
         line-height: 40px; /* Vertically center the text */
         cursor: pointer;
         margin-bottom: 14px;
+          display: none;
       }
       .apple-pay-button {
         -webkit-appearance: -apple-pay-button;
@@ -46,6 +51,7 @@
         height: 30pt;
         margin: 10px;
         cursor: pointer;
+          display: none;
       }
 
       .pay-icon {
@@ -61,13 +67,31 @@
         font-size: 11px;
         margin: 20px;
       }
+
+      input[type="text"] {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+
+      label {
+        margin-bottom: 10px;
+        display: block;
+      }
     </style>
   </head>
   <body>
     <h3>This is WebView</h3>
+    <div>
+      <label for="custId">Customer ID</label>
+      <input type="text" id="custId" />
+    </div>
+
     <div class="button-container">
       <div id="gpay-button">
-       Pay with <img class="pay-icon" src="GPay.svg" alt="Gpay" />
+        Pay with <img class="pay-icon" src="GPay.svg" alt="Gpay" />
       </div>
 
       <div id="applepay-button" class="apple-pay-button"></div>
@@ -92,28 +116,37 @@
       function togglePayButtons() {
         const gpayButton = document.getElementById("gpay-button");
         const applepayButton = document.getElementById("applepay-button");
+        const customerId = document.getElementById("custId");
 
         if (isIOSWebView()) {
           gpayButton.style.display = "none";
           applepayButton.style.display = "inline-block";
           applepayButton.addEventListener("click", () => {
-            window.ReactNativeWebView.postMessage("ApplePay");
+            window.ReactNativeWebView.postMessage(
+              JSON.stringify({
+                customerId,
+                paymentMethod: "ApplePay",
+              })
+            );
           });
         } else if (isAndroidWebView()) {
           gpayButton.style.display = "inline-block";
           applepayButton.style.display = "none";
           gpayButton.addEventListener("click", () => {
-            window.ReactNativeWebView.postMessage("GPay");
+            window.ReactNativeWebView.postMessage(JSON.stringify({
+                customerId,
+                paymentMethod: "GPay",
+            }));
           });
         } else {
           gpayButton.style.display = "inline-block";
           applepayButton.style.display = "inline-block";
-          applepayButton.addEventListener("click", () => {
-            window.ReactNativeWebView.postMessage("ApplePay");
-          });
-          gpayButton.addEventListener("click", () => {
-            window.ReactNativeWebView.postMessage("GPay");
-          });
+          // applepayButton.addEventListener("click", () => {
+          //   window.ReactNativeWebView.postMessage("ApplePay");
+          // });
+          // gpayButton.addEventListener("click", () => {
+          //   window.ReactNativeWebView.postMessage("GPay");
+          // });
         }
       }
       window.onload = togglePayButtons;
