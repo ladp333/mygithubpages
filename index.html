@@ -116,7 +116,7 @@
       function togglePayButtons() {
         const gpayButton = document.getElementById("gpay-button");
         const applepayButton = document.getElementById("applepay-button");
-        const customerId = document.getElementById("custId");
+        const customerId = document.getElementById("custId").value;
 
         if (isIOSWebView()) {
           gpayButton.style.display = "none";
