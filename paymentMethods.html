@@ -77,9 +77,28 @@
         font-weight: normal;
         color: #232323;
       }
+
+      input[type="text"] {
+        width: 140pt;
+        margin-bottom: 20px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+
+      label {
+        margin-bottom: 10px;
+        display: block;
+      }
     </style>
   </head>
   <body>
+    <div>
+      <label for="custId">Customer ID</label>
+      <input type="text" id="custId" />
+      <label for="amount">Amount</label>
+      <input type="text" id="amount" />
+    </div>
     <div class="payment-container">
       <h2 class="heading">Payment Methods</h2>
       <ul class="payment-options">
@@ -117,5 +136,25 @@
       </ul>
       <button type="button" class="payment-button">Pay Now</button>
     </div>
+
+    <script>
+      function request(data, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open(data.method, data.url, true);
+
+        if (data.method === "POST") {
+          xhr.setRequestHeader("Content-Type", "application/json");
+        }
+
+        xhr.onload = function () {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            callback(xhr.responseText);
+          } else {
+            callback("Error: " + xhr.status);
+          }
+        };
+        xhr.send(data.body ? JSON.stringify(data.body) : null);
+      }
+    </script>
   </body>
 </html>
