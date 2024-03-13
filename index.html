@@ -116,7 +116,7 @@
       function togglePayButtons() {
         const gpayButton = document.getElementById("gpay-button");
         const applepayButton = document.getElementById("applepay-button");
-        const customerId = document.getElementById("custId").value;
+
 
         if (isIOSWebView()) {
           gpayButton.style.display = "none";
@@ -124,7 +124,7 @@
           applepayButton.addEventListener("click", () => {
             window.ReactNativeWebView.postMessage(
               JSON.stringify({
-                customerId: customerId,
+                customerId: document.getElementById("custId").value,
                 paymentMethod: "ApplePay",
               })
             );
@@ -135,7 +135,7 @@
           gpayButton.addEventListener("click", () => {
             window.ReactNativeWebView.postMessage(
               JSON.stringify({
-                customerId: customerId,
+                customerId: document.getElementById("custId").value,
                 paymentMethod: "GPay",
               })
             );
