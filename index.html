@@ -40,7 +40,7 @@
         line-height: 40px; /* Vertically center the text */
         cursor: pointer;
         margin-bottom: 14px;
-          display: none;
+        display: none;
       }
       .apple-pay-button {
         -webkit-appearance: -apple-pay-button;
@@ -51,7 +51,7 @@
         height: 30pt;
         margin: 10px;
         cursor: pointer;
-          display: none;
+        display: none;
       }
 
       .pay-icon {
@@ -133,14 +133,18 @@
           gpayButton.style.display = "inline-block";
           applepayButton.style.display = "none";
           gpayButton.addEventListener("click", () => {
-            window.ReactNativeWebView.postMessage(JSON.stringify({
+            window.ReactNativeWebView.postMessage(
+              JSON.stringify({
                 customerId,
                 paymentMethod: "GPay",
-            }));
+              })
+            );
           });
         } else {
           gpayButton.style.display = "inline-block";
           applepayButton.style.display = "inline-block";
+
+          console.log("customerId: ", customerId)
           // applepayButton.addEventListener("click", () => {
           //   window.ReactNativeWebView.postMessage("ApplePay");
           // });
