@@ -147,7 +147,7 @@
           gpayButton.addEventListener("click", () => {
             console.log(
               JSON.stringify({
-                customerId: customerId,
+                customerId: document.getElementById("custId").value,
                 paymentMethod: "GPay",
               })
             );
