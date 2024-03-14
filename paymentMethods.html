@@ -208,7 +208,9 @@
                   document.getElementById("apple-pay-radio").value,
               },
             },
-            function () {}
+            function (response) {
+              console.log(response);
+            }
           );
         });
       }
