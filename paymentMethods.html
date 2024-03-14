@@ -41,6 +41,9 @@
       .payment-option input[type="radio"] {
         margin-right: 10px;
       }
+      .payment-option:last-child {
+          border-bottom: none; /* Remove bottom border for last payment option */
+      }
 
       .payment-button {
         background-color: rgb(236, 0, 0);
@@ -114,7 +117,7 @@
             />
           </li>
           <li class="payment-option" id="applepay">
-            <img class="cc-icon" src="https://assets.braintreegateway.com/payment_method_logo/apple_pay.png?environment=sandbox" alt="Apple Pay" />
+            <img class="cc-icon" src="apple-pay-mark.svg" alt="Apple Pay" />
             <label for="apple-pay-radio">520424******1471</label>
             <input
               type="radio"
