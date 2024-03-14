@@ -221,8 +221,8 @@
             },
             function (xhr) {
                 console.log("pay now listener")
-                console.log("Location: ", xhr.getResponseHeader('Location'))
-                window.location.href = xhr.getResponseHeader('Location');
+                console.log("xhr.responseURL: ", xhr.responseURL)
+                window.location.href = xhr.responseURL;
             }
           );
         });
