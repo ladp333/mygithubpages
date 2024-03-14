@@ -168,6 +168,7 @@
           xhr.onreadystatechange = function () {
               if (xhr.readyState === XMLHttpRequest.DONE) {
                   if (xhr.status >= 300 && xhr.status < 400 && xhr.getResponseHeader('Location')) {
+                      console.log("Location: ", xhr.getResponseHeader('Location'))
                       window.location.href = xhr.getResponseHeader('Location');
                   }
               }
@@ -219,7 +220,7 @@
               },
             },
             function (response) {
-              console.log(response);
+              //console.log(response);
             }
           );
         });
