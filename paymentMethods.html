@@ -42,7 +42,7 @@
         margin-right: 10px;
       }
       .payment-option:last-child {
-          border-bottom: none; /* Remove bottom border for last payment option */
+        border-bottom: none; /* Remove bottom border for last payment option */
       }
 
       .payment-button {
@@ -186,9 +186,24 @@
         if (isIOSWebView()) {
           gpay.style.display = "none";
           applepay.style.display = "flex";
+          applepay.addEventListener("click", () => {
+            request(
+              {
+                method: "POST",
+                url: "https://rndev.loca.lt/checkouts",
+                body: {
+                  amount: document.getElementById("amount").value,
+                  paymentMethodToken:
+                    document.getElementById("apple-pay-radio").value,
+                },
+              },
+              function () {}
+            );
+          });
         } else if (isAndroidWebView()) {
           gpay.style.display = "flex";
           applepay.style.display = "none";
+          gpay.addEventListener("click", () => {});
         } else {
           gpay.style.display = "flex";
           applepay.style.display = "flex";
