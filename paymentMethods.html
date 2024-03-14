@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Payment methods</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <title>Payment methods</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -164,7 +164,16 @@
             callback("Error: " + xhr.status);
           }
         };
-        xhr.send(data.body ? JSON.stringify(data.body) : null);
+
+          xhr.onreadystatechange = function () {
+              if (xhr.readyState === XMLHttpRequest.DONE) {
+                  if (xhr.status >= 300 && xhr.status < 400 && xhr.getResponseHeader('Location')) {
+                      window.location.href = xhr.getResponseHeader('Location');
+                  }
+              }
+          };
+
+          xhr.send(data.body ? JSON.stringify(data.body) : null);
       }
     </script>
 
