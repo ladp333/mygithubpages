@@ -159,7 +159,7 @@
 
         xhr.onload = function () {
           if (xhr.status >= 200 && xhr.status < 300) {
-            callback(xhr.responseText);
+            callback(xhr);
           } else {
             callback("Error: " + xhr.status);
           }
@@ -219,8 +219,10 @@
                   document.getElementById("apple-pay-radio").value,
               },
             },
-            function (response) {
-              //console.log(response);
+            function (xhr) {
+                console.log("pay now listener")
+                console.log("Location: ", xhr.getResponseHeader('Location'))
+                window.location.href = xhr.getResponseHeader('Location');
             }
           );
         });
