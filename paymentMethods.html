@@ -85,9 +85,9 @@
         margin-bottom: 5px;
         display: block;
       }
-      hr{
-          margin-top: 25px;
-          border-top: 1px solid rgb(227, 227, 227);
+      hr {
+        margin-top: 25px;
+        border-top: 1px solid rgb(227, 227, 227);
       }
     </style>
   </head>
@@ -98,45 +98,48 @@
       <label for="amount">Amount</label>
       <input type="text" id="amount" />
     </div>
-    <div class="payment-container">
-      <h2 class="heading">Payment Methods</h2>
-      <ul class="payment-options">
-        <li class="payment-option">
-          <img class="cc-icon" src="ma_symbol.svg" alt="master card" />
-          <img class="cc-icon" src="visa_symbol.svg" alt="visa card" />
-          <label for="credit-card">Credit Card</label>
-          <input
-            type="radio"
-            id="credit-card"
-            name="payment-method"
-            value="credit-card"
-          />
-        </li>
-        <li class="payment-option">
-          <img class="cc-icon" src="apple-pay-mark.svg" alt="Apple Pay" />
-          <label for="apple-pay">Apple Pay</label>
-          <input
-            type="radio"
-            id="apple-pay"
-            name="payment-method"
-            value="apple-pay"
-          />
-        </li>
-        <li class="payment-option">
-          <img class="cc-icon" src="google-pay-mark.svg" alt="Google Pay" />
-          <label for="google-pay">Google Pay</label>
-          <input
-            type="radio"
-            id="google-pay"
-            name="payment-method"
-            value="google-pay"
-          />
-        </li>
-      </ul>
-    </div>
-    <hr> <!-- Horizontal line -->
-    <div class="pay-now-container">
+    <div id="pay-now">
+      <div class="payment-container">
+        <h2 class="heading">Payment Methods</h2>
+        <ul class="payment-options">
+          <li class="payment-option">
+            <!--            <img class="cc-icon" src="ma_symbol.svg" alt="master card" />-->
+            <img class="cc-icon" src="visa_symbol.svg" alt="visa card" />
+            <label for="credit-card">411111******1111</label>
+            <input
+              type="radio"
+              id="credit-card"
+              name="payment-method"
+              value="3ae7p3g5"
+            />
+          </li>
+          <li class="payment-option" id="applepay">
+            <img class="cc-icon" src="apple-pay-mark.svg" alt="Apple Pay" />
+            <label for="apple-pay-radio">Apple Pay</label>
+            <input
+              type="radio"
+              id="apple-pay-radio"
+              name="payment-method"
+              value="apple-pay"
+            />
+          </li>
+          <li class="payment-option" id="gpay">
+            <img class="cc-icon" src="google-pay-mark.svg" alt="Google Pay" />
+            <label for="google-pay-radio">Google Pay</label>
+            <input
+              type="radio"
+              id="google-pay-radio"
+              name="payment-method"
+              value="google-pay"
+            />
+          </li>
+        </ul>
+      </div>
+      <hr />
+      <!-- Horizontal line -->
+      <div class="pay-now-container">
         <button type="button" class="payment-button">Pay Now</button>
+      </div>
     </div>
 
     <script>
@@ -157,6 +160,38 @@
         };
         xhr.send(data.body ? JSON.stringify(data.body) : null);
       }
+    </script>
+
+    <script>
+      function isIOSWebView() {
+        return /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(
+          navigator.userAgent
+        );
+      }
+
+      function isAndroidWebView() {
+        return /Android.*(?:Version\/(\d+)\.\d+)?\s+Chrome\/[.0-9]*\s+Mobile/i.test(
+          navigator.userAgent
+        );
+      }
+
+      // Function to show/hide buttons based on WebView type
+      function toggleMobilePayments() {
+        const gpay = document.getElementById("gpay");
+        const applepay = document.getElementById("applepay");
+
+        if (isIOSWebView()) {
+          gpay.style.display = "none";
+          applepay.style.display = "inline-block";
+        } else if (isAndroidWebView()) {
+          gpay.style.display = "inline-block";
+          applepay.style.display = "none";
+        } else {
+          gpay.style.display = "inline-block";
+          applepay.style.display = "inline-block";
+        }
+      }
+      window.onload = toggleMobilePayments;
     </script>
   </body>
 </html>
