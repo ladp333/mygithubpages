@@ -149,13 +149,19 @@
             margin-left: 10px;
         }
     </style>
+
+    <script>
+        function openBottomSheet() {
+            window.ReactNativeWebView.postMessage('openBottomSheet');
+        }
+    </script>
 </head>
 <body>
 
 <!-- Sticky Header -->
 <div class="header">
     <div class="title">Devices</div>
-    <button>?</button>
+    <button onclick="openBottomSheet()">?</button>
 </div>
 
 <!-- Scrollable Body Content -->
@@ -168,7 +174,7 @@
                 <h2>Tesla Model X</h2>
                 <button class="boost-btn">Boost ⚡</button>
             </div>
-            <p class="status">Charging...</p>
+            <p class="status">Charging ...</p>
             <p>Will be ready by 7am</p>
             <p class="estimate-cost">
                 Est. cost <span>$5.35</span><span class="old-cost">$10.18</span>
@@ -191,7 +197,7 @@
 
         </div>
         <div>
-            <p class="status">Discharging...</p>
+            <p class="status">Discharging ...</p>
             <p class="status">Today in 5.7 out 3.2 kWh</p>
             <p class="battery-info">🔋 24% ~2.1 kWh</p>
         </div>
