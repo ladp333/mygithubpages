@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devices</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        .title{
+            font-size: 18px;
+            color: rgb(80, 80, 80);
+            font-weight: 500;
+        }
+
+        /* Sticky Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 1000;
+            padding: 15px;
+            display: flex;
+            justify-content: center; /* Centers the title horizontally */
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* ? Button on the right */
+        .header button {
+            color: rgb(80, 80, 80);
+            position: absolute; /* Positions the button on the right */
+            right: 15px;
+            font-size: 18px;
+            background-color: white;
+            border: 2px solid rgb(80, 80, 80);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        /* Scrollable Body */
+        .body-content {
+            padding: 20px;
+            overflow-y: auto;
+            height: 90vh; /* Adjusted height to allow scrollable content */
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start; /* Aligns content vertically */
+        }
+
+        .card-content {
+            /*max-width: 60%; !* Restricts text width to leave room for the image *!*/
+        }
+
+        .card img {
+            width: 120px; /* Set a fixed width for the image */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Optional: Add rounded corners to the image */
+            object-fit: cover;
+        }
+
+
+
+        .card h2 {
+            margin: 0;
+            color: #e62b24;
+            font-size: 18px;
+        }
+
+        .card .status {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .card .estimate-cost {
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .card .old-cost {
+            text-decoration: line-through;
+            color: #888;
+            margin-left: 5px;
+        }
+
+
+
+        .battery-info, .vpp-info {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Boost button - outlined with 50% border radius */
+        .boost-btn {
+
+            color: #ff5722; /* Text color */
+            padding: 5px 15px;
+            border-radius: 999px; /* Makes it round */
+            border: 2px solid #ff5722; /* Outline color */
+            font-size: 14px;
+            background-color: transparent; /* No background */
+
+
+            cursor: pointer;
+        }
+
+        .boost-icon {
+            color: #ff5722; /* Color of the ⚡ icon */
+        }
+
+        /* Flexbox to arrange content */
+        .info {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Battery participation */
+        .vpp-toggle {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .vpp-toggle input[type="checkbox"] {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sticky Header -->
+<div class="header">
+    <div class="title">Devices</div>
+    <button>?</button>
+</div>
+
+<!-- Scrollable Body Content -->
+<div class="body-content">
+    <!-- Tesla Model X Card -->
+
+    <div class="card">
+        <div class="card-content">
+            <div class="info">
+                <h2>Tesla Model X</h2>
+                <button class="boost-btn">Boost ⚡</button>
+            </div>
+            <p class="status">Charging.<br>Will be ready by 7am</p>
+            <p class="estimate-cost">
+                Est. cost <span>$5.35</span><span class="old-cost">$10.18</span>
+            </p>
+            <p class="battery-info">🔋 60% ~240km</p>
+        </div>
+        <img src="https://www.originenergy.com.au/wp-content/uploads/ev_spot_large.svg" alt="Electric Car Image">
+    </div>
+
+
+
+    <!-- Battery Card -->
+    <div class="card">
+        <div class="info">
+            <h2>Battery</h2>
+            <div class="vpp-toggle">
+                <span>VPP participation</span>
+                <input type="checkbox" checked>
+            </div>
+
+        </div>
+        <div>
+            <p class="status">Discharging...</p>
+            <p class="status">Today in 5.7 out 3.2 kWh</p>
+            <p class="battery-info">🔋 24% ~2.1 kWh</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
